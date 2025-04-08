@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Saneamento e IDH no Nordeste</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jQuery + DataTables -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f8;
+            margin: 40px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        #tabela {
+            margin-top: 30px;
+        }
+        canvas {
+            max-width: 100%;
+            margin: 40px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dashboard dos Estados do Nordeste</h1>
+
+    <!-- Gráfico de barras -->
+    <canvas id="graficoBarras"></canvas>
+
+    <!-- Tabela dinâmica -->
+    <table id="tabela" class="display">
+        <thead>
+            <tr>
+                <th>Estado</th>
+                <th>Atendimento de Água (%)</th>
+                <th>Tratamento de Esgoto (%)</th>
+                <th>Proporção Tratada (%)</th>
+                <th>IDH</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Bahia</td><td>80.55</td><td>48.79</td><td>80.37</td><td>0.714</td></tr>
+            <tr><td>Sergipe</td><td>91.62</td><td>38.14</td><td>82.47</td><td>0.702</td></tr>
+            <tr><td>Alagoas</td><td>77.21</td><td>14.75</td><td>68.99</td><td>0.683</td></tr>
+            <tr><td>Pernambuco</td><td>86.65</td><td>30.10</td><td>30.45</td><td>0.727</td></tr>
+            <tr><td>Paraíba</td><td>76.99</td><td>38.66</td><td>79.39</td><td>0.735</td></tr>
+            <tr><td>Rio Grande do Norte</td><td>79.69</td><td>29.78</td><td>81.73</td><td>0.738</td></tr>
+            <tr><td>Ceará</td><td>70.30</td><td>36.57</td><td>87.04</td><td>0.735</td></tr>
+            <tr><td>Piauí</td><td>72.84</td><td>18.84</td><td>90.27</td><td>0.713</td></tr>
+            <tr><td>Maranhão</td><td>68.06</td><td>20.92</td><td>89.13</td><td>0.687</td></tr>
+        </tbody>
+    </table>
+
+    <!-- Scripts para gráfico e tabela -->
+    <script>
+        // Inicialização do DataTable
+        $(document).ready(function () {
+            $('#tabela').DataTable({
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json"
+                }
+            });
+        });
+
+        // Gráfico de barras IDH vs Atendimento de Esgoto
+        const ctx = document.getElementById('graficoBarras').getContext('2d');
+        const grafico = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Bahia', 'Sergipe', 'Alagoas', 'Pernambuco', 'Paraíba', 'Rio G. do Norte', 'Ceará', 'Piauí', 'Maranhão'],
+                datasets: [
+                    {
+                        label: 'IDH',
+                        data: [0.714, 0.702, 0.683, 0.727, 0.735, 0.738, 0.735, 0.713, 0.687],
+                        backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                    },
+                    {
+                        label: 'Tratamento de Esgoto (%)',
+                        data: [48.79, 38.14, 14.75, 30.10, 38.66, 29.78, 36.57, 18.84, 20.92],
+                        backgroundColor: 'rgba(231, 76, 60, 0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'IDH vs Tratamento de Esgoto nos Estados do Nordeste'
+                    },
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparação de Saneamento e IDH</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f4f4f4;
+        }
+        canvas {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Comparação: Nordeste vs Sul/Sudeste</h2>
+    <canvas id="graficoComparativo" width="700" height="400"></canvas>
+
+    <script>
+        const ctx = document.getElementById('graficoComparativo').getContext('2d');
+        const grafico = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Alagoas', 'Maranhão', 'Piauí', 'Bahia', 'São Paulo', 'Santa Catarina', 'Paraná'],
+                datasets: [
+                    {
+                        label: 'IDH',
+                        data: [0.683, 0.687, 0.713, 0.714, 0.826, 0.805, 0.796],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        yAxisID: 'eixoIDH'
+                    },
+                    {
+                        label: 'Tratamento de Esgoto (%)',
+                        data: [14.75, 20.92, 18.84, 48.79, 90, 82, 79],
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        yAxisID: 'eixoTratamento'
+                    }
+                ]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    eixoIDH: {
+                        type: 'linear',
+                        position: 'left',
+                        min: 0.6,
+                        max: 0.9,
+                        title: {
+                            display: true,
+                            text: 'IDH'
+                        }
+                    },
+                    eixoTratamento: {
+                        type: 'linear',
+                        position: 'right',
+                        min: 0,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Tratamento de Esgoto (%)'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'IDH vs Tratamento de Esgoto - Nordeste x Sul/Sudeste'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
