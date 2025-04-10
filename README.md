@@ -1,4 +1,4 @@
-<h1 align="center">💧 Water Fracture: 38,000 Hospitalizations Exposing Northeastern Brazil's Sanitation Crisis</h1>
+<h1 align="center">💧 38,000 Hospitalizations Exposing Northeastern Brazil's Sanitation Crisis</h1>
 <h3 align="center">A National Geographic Freshwater Storytelling Proposal | SDG 6 Initiative</h3>
 
 <p align="center">
@@ -11,6 +11,8 @@
 
 
 ---
+> Database <a href="https://doi.org/10.5281/zenodo.15192346"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15192346.svg" alt="DOI"></a>
+> - [avaliable on hugging face](https://huggingface.co/datasets/carpenterbb/agua_e_esgoto_nordeste_brasileiro)
 
 ## Table of Contents
 🔍 [Project Overview](#project-overview-book)  
