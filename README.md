@@ -5,6 +5,8 @@
   <img src="https://img.shields.io/badge/Status-IN_DEVELOPMENT-red?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/National_Geographic-Call_Proposal_2025-blue?style=for-the-badge&logo=earth"/>
   <img src="https://img.shields.io/badge/Data_Points-9_States_Analyzed-green?style=for-the-badge&logo=pandas"/>
+  <a href="https://doi.org/10.5281/zenodo.15192397"><img src="https://zenodo.org/badge/961616561.svg" alt="DOI"></a>
+
 </p>
 
 > *"In Maranhão, 59.09% of clean water vanishes in distribution - while 38,000 people get hospitalized annually from contaminated sources."*  
